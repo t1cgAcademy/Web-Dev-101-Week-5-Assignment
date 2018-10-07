@@ -1,0 +1,35 @@
+#seagalTitle {
+    text-align: center;
+    color: darkblue;
+  }
+  table, tr, th, td, tbody {
+    background-color: lightgreen;
+    border: 1px solid black;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  #seagalPic {
+    height: 500px;
+    width: 300px;
+  }
+  #seagalVideo {
+    height: 500px;
+    width: 300px;
+  }
+  .displayClass{
+    display: none;
+  }
+  #link {
+    text-align: center;
+  }
+  .date {
+    text-align: center;
+  }
+  .centerClass {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+  }
+  body {
+    background-color: lightblue;
+  }

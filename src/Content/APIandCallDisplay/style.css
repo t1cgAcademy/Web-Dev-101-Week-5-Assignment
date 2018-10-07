@@ -1,0 +1,20 @@
+.searchTable {
+  background-color: white;
+  border: 1px solid black;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.centerClass {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#titleTD {
+  width: 200px;
+}
+
+#storylineTD {
+  height: 200px;
+}
