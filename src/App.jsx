@@ -209,7 +209,7 @@ class App extends Component {
         {this.state.showTrivia ? (
           <div className="triviaDisplay">
             <div>
-              <div className="questionDisplay">{this.state.questionDisplay}</div>{' '}
+              <div className="questionDisplay">{this.state.questionDisplay}</div>
               <input onChange={this.setAnswer} />
             </div>
             <div>{this.state.answerResult}</div>
@@ -244,9 +244,6 @@ class App extends Component {
           </button>
         </div>
         <br />
-        {/* <div>
-          <button onClick={this.changeButtonText}>{this.state.buttonText}</button>
-        </div> */}
         <button onClick={this.showDate}>Show Date</button>
         <h1>{this.state.date}</h1>
         <div>
