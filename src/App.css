@@ -2,31 +2,125 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.App {
+  border-style: outset;
+  border-radius: 50px;
+  box-shadow: 0 0 5px 0 #771b1b80;
+  margin: 50px;
 }
 
-.App-link {
-  color: #61dafb;
+.bruceTitle {
+  padding-top: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
+
+button {
+  background-color: lightgray;
+  border-radius: 8px;
+  margin: 10px;
+  font-size: 16px;
+}
+
+input {
+  margin: 10px;
+}
+
+.questionDisplay {
+  background-color: lightgray;
+  padding: 20px;
+  margin-right: 200px;
+  margin-left: 200px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-style: outset;
+  box-shadow: 0 0 5px 0 #771b1b80;
+}
+
+label {
+  margin: 10px;
+}
+
+select {
+  margin-bottom: 20px;
+}
+
+/* body {
+  background-color: lightblue;
+}
+
+#willisTitle {
+  text-align: center;
+  color: darkblue;
+}
+
+table,
+th,
+td {
+  background-color: lightgreen;
+  border: 1px solid black;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#willisPic,
+#willisVideo {
+  height: 500px;
+  width: 400px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.classHidden {
+  display: none !important;
+}
+
+#link {
+  text-align: center;
+}
+
+.date {
+  text-align: center;
+}
+
+.centerClass {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#trivia,
+#triviaInput,
+#answerButton,
+#triviaContent,
+#nextQuestion,
+#resetGame {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#triviaButton,
+#titleInput,
+#yearInput,
+#videoButton {
+  margin-top: 20px;
+  margin-bottom: 20px;
+} */
