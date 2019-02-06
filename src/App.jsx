@@ -52,7 +52,7 @@ class App extends Component {
   displayPicVideo = () => {
     if (this.state.showVideo === false) {
       return (
-        <div id="milaPicture">
+        <div id="brucePicture">
           <img
             alt="Bruce"
             height="500"
