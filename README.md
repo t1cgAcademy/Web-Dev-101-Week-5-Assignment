@@ -1,3 +1,7 @@
+## Lesson 5 Assignment
+
+This week, we will be converting your celebrity website to react and adding a bit more functionality. To get started, simply clone `https://github.com/t1cgAcademy/Web-Dev-101-Week-5-Assignment.git`. Once cloned, change directory into that folder and run `npm start`. Much like `live-server`, you can now make changes, save, and see the changes in your browswer. The instructions below go into more detail about available scripts...
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
