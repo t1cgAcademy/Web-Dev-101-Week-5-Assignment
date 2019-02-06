@@ -1,10 +1,5 @@
-.App {
-  text-align: center;
-}
-
 body {
-  margin: 0;
-  padding: 0;
+  /* Set margin and padding to 0 */
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -13,14 +8,15 @@ body {
 }
 
 .App {
-  border-style: outset;
-  border-radius: 50px;
+  /* Align all text to center of screen */
+  /* Set outset border style
+  Set border radius to 50px */
   box-shadow: 0 0 5px 0 #771b1b80;
-  margin: 50px;
+  /* Set all margins to 50px */
 }
 
 .bruceTitle {
-  padding-top: 20px;
+  /* Set top padding ONLY to 20px */
 }
 
 code {
@@ -29,98 +25,27 @@ code {
 }
 
 button {
-  background-color: lightgray;
-  border-radius: 8px;
-  margin: 10px;
-  font-size: 16px;
+  /* Set background color to light gray
+  Set border radius to 8px
+  Set all button margins to 10px
+  Set size of font to 16px */
 }
 
-input {
-  margin: 10px;
-}
+/* Set all input margins to 10px */
 
 .questionDisplay {
   background-color: lightgray;
-  padding: 20px;
-  margin-right: 200px;
-  margin-left: 200px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  border-style: outset;
+  /* Set padding on all sides to 20px */
+  /* Set right and left margins to 200px */
+  /* Set top and bottom margins to 20px */
+  /* Set outset border style */
   box-shadow: 0 0 5px 0 #771b1b80;
 }
 
 label {
-  margin: 10px;
+  /* Set all margins to 10px */
 }
 
 select {
-  margin-bottom: 20px;
+  /* Set bottom margin to 20px */
 }
-
-/* body {
-  background-color: lightblue;
-}
-
-#willisTitle {
-  text-align: center;
-  color: darkblue;
-}
-
-table,
-th,
-td {
-  background-color: lightgreen;
-  border: 1px solid black;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#willisPic,
-#willisVideo {
-  height: 500px;
-  width: 400px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.classHidden {
-  display: none !important;
-}
-
-#link {
-  text-align: center;
-}
-
-.date {
-  text-align: center;
-}
-
-.centerClass {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#trivia,
-#triviaInput,
-#answerButton,
-#triviaContent,
-#nextQuestion,
-#resetGame {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-#triviaButton,
-#titleInput,
-#yearInput,
-#videoButton {
-  margin-top: 20px;
-  margin-bottom: 20px;
-} */
