@@ -22,12 +22,19 @@ class App extends Component {
       answer: '',
       nextQuestionButtonDisplay: true,
       answerResult: '',
+      message: '',
+      messageArray: [],
+      showMessageBoard: false,
     };
   }
 
   showDate = () => {
     // Set date state to show today's date
   };
+
+  Define hideDate function here {
+    Set date state to null
+  }
 
   changeBackgroundColor = e => {
     // Set backgroundColor state to value selected in select tag.
@@ -75,8 +82,38 @@ class App extends Component {
     // Hint: Spread lightly!
   };
 
+  // I had to use a function called splice for array manipulation below.  This is
+  // most likely your first experience using splice, so I provided the code in working
+  // form below with a detailed explanation.  It is always good to learn about as 
+  // many tools as possible in case you need them in the future. 
+  deleteRowFunc = () => {
+    // deconstruction below 
+    const { movieTable, movieTitle } = { ...this.state };
+    // Use spread operator to set array to an array full of current 
+    // movieTable contents
+    const array = [...movieTable];
+    // Get the index of the last movieTitle added 
+    const index = array.indexOf(movieTitle.length);
+    // Array.splice takes two arguments.  First, you must provide an index
+    // at which to start changing the array.  Second, you will provide the
+    // deleteCount, aka the number of array items to remove.  Below we are
+    // telling splice to start at the last index and remove one item.  In other
+    // words, remove the last item.
+    array.splice(index, 1);
+    // Set movieTable state to array below
+    this.setState({
+      movieTable: array,
+    });
+  }
+
   mapMovies = () => {
-    // Declare a mapMovies constant variable
+    // Mapping example below
+    const mapMovies = this.state.movieTable.map((movies, i) => (
+      <tr key={i}>
+        <td>{movies.movieTitle}</td>
+        <td>{movies.movieYear}</td>
+      </tr>
+    ));
     return (
       <table style={{ margin: 'auto' }}>
         <tbody>
@@ -153,6 +190,58 @@ class App extends Component {
   // Set nextQuestionButtonDisplay to true
   // Clear our answerResult state. 
 
+  handleMessage = e => {
+    e.preventDefault();
+    // Set message state to e.target.value
+  };
+
+  mapMessages = () => {
+    // Map through message array using previous example in mapMovies function
+    // above for reference.  In stead of setting the mapped array to a variable
+    // as show in mapMovies, you are simply going to return the whole thing... 
+    // return mappingMessageArrayHere.map((individualMessage, i) => {
+    //   <div className="messageCard" key={i} onClick={() => this.deleteMessage(i)}>
+    //     <p key={i}>
+    //       {this.getDate() + ' '}
+    //       {message}!
+    //     </p>
+    //   </div>
+    // })
+  }
+
+  addMessage = () => {
+    // Initialize constant variable called singleMessage and set its value to equal 
+    // this.state.message. 
+    // Set the message array state to an array with two arguments...
+    // The first argument will spread in this.state.messageArray
+    // (remember the spread operator).
+    // The second argument will be the singleMessage you are adding to messageArray
+  }
+
+  // The function below uses slice to remove an element from array (not to be confused
+  //   with sPlice from deleteRowFunc function above).
+  //   slice() creates a new array with the indexes it receives. We create a new array,
+  //   from the start to the index we want to remove, and concatenate another array from
+  //   the first position following the one we removed to the end of the array.
+  deleteMessage = i => {
+    const filteredMessages = this.state.messageArray
+      .slice(0, i)
+      .concat(this.state.messageArray.slice(i + 1, this.state.messageArray.length));
+    this.setState({
+      messageArray: filteredMessages,
+    });
+  };
+
+  showMessageBoard = () => {
+    // Set showMessageBoard state to the opposite value of showMessageBoard state
+  }
+
+  //Get date is called in mapMessages
+  getDate = () => {
+  //  use javascript new Date() to get 
+  //  return month + 1 +n '/' + day + '/' + year
+  }
+
   render() {
     return (
       <div className="App" style={{ background: `${this.state.backgroundColor}` }}>
@@ -193,10 +282,22 @@ class App extends Component {
         {/* Call displayPicVideo here. */}
 
         <div>
-          The function call above depends on a button to change the showVideo state...
+          {/* The function call above depends on a button to change the showVideo state...
           So, here you will need to create a button with an on click event set to
-          trigger handleVideoToggle.  Set button text to display Picture Video Toggle
+          trigger handleVideoToggle.  Set button text to display Picture Video Toggle */}
         </div>
+{/* another ternary ==>>{if showMessageBoard state is true or truthy then display (?)
+                <Section tag with class set to messageBoard>
+                  <div className="title"> */}
+                    {/* Add h2 tab with text set to display "Post a Message" */}
+                  </div>
+                  {/* Add textarea tag here ith onChange event set to trigger handMessage
+                  function, with id message and type text */}
+                  {/* Add line break tag here */}
+                  {/* Add input tag with value set to submit, onClick set to trigger addMessage, type button,
+                  and class submitButton */}
+                  {this.mapMessages()}
+                {/* </Section> else (:) display an empty div} */}
         <h2>
           <a href="https://en.wikipedia.org/wiki/Bruce_Willis">Bruce's Wiki Page</a>
         </h2>
@@ -212,14 +313,20 @@ class App extends Component {
         <div>
           {/* Create a button with id tableButton, and an on click event set to trigger
           addMovie function. */}
+          Add button with onClick set to trigger deleteRowFunc and button text set to 
+          "Add Movie to Table"
         </div>
 
         {/* Break tag here!!! */}
 
-        {/* Create a button with on click event set to trigger showDate function.
-        Set button text to display Show Date */}
+        {/* {Ternary for date here => if this.state.date is true, or truthy then show (?)
+         Create and display a button with onClick event set to hideDate function call (remember setting the function call is a bit different in react/jsx).
+        Set button text to display "Hide Current Date"
+        or (:) Create and display a button with an onClick event set to showDate function call
+        Set button text to display "Get Current Date"
+      } <<<== Date button ternary ends here */}
+        {/* {Display date state here} */}
 
-        {/* Display your date in an h1 here when button/function above ^ is triggered */}
 
         <div>
           <label>Background</label>
@@ -233,6 +340,13 @@ class App extends Component {
             <4. Set value to green and option text to display Green></close option tag>
           </close select> */}
         </div>
+        // <open footer tag here>
+        // Add p tag with text set to display "Posted by: Your Name"
+        // <p>
+        //   Contact information: <add a tag here with href set to "mailto:whateverYourEmailAddressIs".
+        //   Set a tag text to display "yourEmailaddress"
+        // </p>
+        // </close footer tag here>
       </div>
     );
   }

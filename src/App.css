@@ -1,5 +1,10 @@
+.App {
+  /* Align all text to center of screen */
+}
+
 body {
-  /* Set margin and padding to 0 */
+  /* Set bottom margin to 175px
+  Set padding to 0 */
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -7,16 +12,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.App {
-  /* Align all text to center of screen */
-  /* Set outset border style
-  Set border radius to 50px */
-  box-shadow: 0 0 5px 0 #771b1b80;
-  /* Set all margins to 50px */
-}
+/* Style table, th and td here{ */
+/* Set background color to light green */
+/* Set a solid black border with 1px width */
+/* Set left and right margins to auto */
+/* } */
 
 .bruceTitle {
   /* Set top padding ONLY to 20px */
+  /* Align text to center of element */
+  /* Set text color to darkblue */
 }
 
 code {
@@ -28,10 +33,23 @@ button {
   /* Set background color to light gray
   Set border radius to 8px
   Set all button margins to 10px
+  Set height to 50 percent
   Set size of font to 16px */
 }
 
 /* Set all input margins to 10px */
+
+/* Style footer here {
+  Set fixed position
+  Set left edge to 0
+  Set bottom edge to 0
+  Set top and bottom padding to 15px 
+  Set 100 percent width
+  Set minimum height to 10 percent
+  Set background color to white 
+  Set text color to black 
+  Align all footer text to center
+} */
 
 .questionDisplay {
   background-color: lightgray;
@@ -49,3 +67,25 @@ label {
 select {
   /* Set bottom margin to 20px */
 }
+
+/* Style elements with class messageCard here {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  Set transition property to 0.3 seconds
+  Set border radius to 5px
+  Set background color to light gray
+  Set left and right margins to 180px
+  Set top and bottom margins to 20px 
+  Set left and right padding to 20px
+} */
+
+/* On mouse-over, add a deeper shadow */
+.messageCard:hover {
+  box-shadow: 0 16px 24px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Style element with messageContainer class here {
+  Set top padding to 2px
+  Set padding properties using shorthand css ==>>
+  Set the vertical padding to 2px
+  Set horizontal padding to 16px
+} */

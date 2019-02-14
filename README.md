@@ -4,6 +4,12 @@ This week, we will be converting your celebrity website to react and adding a bi
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## New Tasks
+
+1. Create a dropdown menu that allows you to change the background color
+2. Get and display or hide current date
+3. Destructure select functions with multiple this.state values
+
 ## Available Scripts
 
 In the project directory, you can run:
