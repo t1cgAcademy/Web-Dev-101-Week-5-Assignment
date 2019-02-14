@@ -12,7 +12,6 @@ class App extends Component {
       movieYear: null,
       showVideo: false,
       movieTable: [],
-      //////new states for trivia below///////
       questions: [
         "What was Bruce Willis' first movie?   a: Die Hard, b: Look Who's Talking, c: The First Deadly Sin",
         'What year was Bruce Willis Born?   a: 1971, b: 1955, c: 1963',
@@ -23,11 +22,18 @@ class App extends Component {
       answer: '',
       nextQuestionButtonDisplay: true,
       answerResult: '',
+      message: '',
+      messageArray: [],
+      showMessageBoard: false,
     };
   }
 
   showDate = () => {
     this.setState({ date: Date() });
+  };
+
+  hideDate = () => {
+    this.setState({ date: null });
   };
 
   changeBackgroundColor = e => {
@@ -80,14 +86,25 @@ class App extends Component {
   };
 
   addMovie = () => {
-    const movieTitle = this.state.movieTitle;
-    const movieYear = this.state.movieYear;
+    const { movieTitle, movieYear, movieTable } = { ...this.state };
+
     const newMovie = {
       movieTitle,
       movieYear,
     };
     this.setState({
-      movieTable: [...this.state.movieTable, newMovie],
+      movieTable: [...movieTable, newMovie],
+    });
+  };
+
+  deleteRowFunc = () => {
+    const { movieTable, movieTitle } = { ...this.state };
+    const array = [...movieTable];
+    const index = array.indexOf(movieTitle.length);
+
+    array.splice(index, 1);
+    this.setState({
+      movieTable: array,
     });
   };
 
@@ -125,10 +142,10 @@ class App extends Component {
   };
 
   submitAnswer = () => {
-    console.log('what does index look like', this.state.questions.indexOf(this.state.questionDisplay));
-    if (this.state.questions.indexOf(this.state.questionDisplay) === 0) {
+    const { questions, questionDisplay } = { ...this.state };
+    if (questions.indexOf(questionDisplay) === 0) {
       this.questionOneHandler();
-    } else if (this.state.questions.indexOf(this.state.questionDisplay) === 1) {
+    } else if (questions.indexOf(questionDisplay) === 1) {
       this.questionTwoHandler();
     } else {
       this.questionThreeHandler();
@@ -160,7 +177,6 @@ class App extends Component {
   };
 
   questionThreeHandler = () => {
-    console.log('showing the third answer...', this.state.answer);
     if (this.state.answer === 'a') {
       this.setState({
         nextQuestionButtonDisplay: false,
@@ -172,19 +188,14 @@ class App extends Component {
   };
 
   setNextQuestion = () => {
-    if (
-      this.state.questions.indexOf(this.state.questionDisplay) === 2 &&
-      this.state.answerResult === 'CORRECT!!!'
-    ) {
+    const { questions, questionDisplay, answerResult } = { ...this.state };
+    if (questions.indexOf(this.state.questionDisplay) === 2 && answerResult === 'CORRECT!!!') {
       this.setState({ answerResult: 'Correct!, please check out the rest of the site!' });
-    } else if (
-      this.state.questions.indexOf(this.state.questionDisplay) === 2 ||
-      this.state.answerResult === 'WRONG! Try again'
-    ) {
+    } else if (questions.indexOf(questionDisplay) === 2 || answerResult === 'WRONG! Try again') {
       this.setState({ answerResult: 'WRONG! Try again' });
     } else {
       this.setState({
-        questionDisplay: this.state.questions[this.state.questions.indexOf(this.state.questionDisplay) + 1],
+        questionDisplay: questions[questions.indexOf(questionDisplay) + 1],
         answerResult: '',
         nextQuestionButtonDisplay: true,
       });
@@ -197,6 +208,48 @@ class App extends Component {
       nextQuestionButtonDisplay: true,
       answerResult: '',
     });
+  };
+
+  handleMessage = e => {
+    e.preventDefault();
+    this.setState({ message: e.target.value });
+  };
+
+  mapMessages = () => {
+    return this.state.messageArray.map((message, i) => (
+      <div className="messageCard" key={i} onClick={() => this.deleteMessage(i)}>
+        <p key={i}>
+          {this.getDate() + ' '}
+          {message}!
+        </p>
+      </div>
+    ));
+  };
+
+  addMessage = () => {
+    const singleMessage = this.state.message;
+    this.setState({
+      messageArray: [...this.state.messageArray, singleMessage],
+    });
+  };
+
+  deleteMessage = i => {
+    const filteredMessages = this.state.messageArray
+      .slice(0, i)
+      .concat(this.state.messageArray.slice(i + 1, this.state.messageArray.length));
+    this.setState({
+      messageArray: filteredMessages,
+    });
+  };
+
+  showMessageBoard = () => {
+    this.setState({
+      showMessageBoard: !this.state.showMessageBoard,
+    });
+  };
+
+  getDate = () => {
+    return new Date().getMonth() + 1 + '/' + new Date().getDate() + '/' + new Date().getFullYear();
   };
 
   render() {
@@ -227,6 +280,20 @@ class App extends Component {
         <div>
           <button onClick={this.handleVideoToggle}>Picture Video Toggle</button>
         </div>
+        <button onClick={this.showMessageBoard}>Message Board</button>
+        {this.state.showMessageBoard ? (
+          <section className="messageBoard">
+            <div className="title">
+              <h2>Post a Message</h2>
+            </div>
+            <textarea onChange={this.handleMessage} id="message" type="text" />
+            <br />
+            <input value="Submit" onClick={this.addMessage} type="button" className="submitButton" />
+            {this.mapMessages()}
+          </section>
+        ) : (
+          <div />
+        )}
         <h2>
           <a href="https://en.wikipedia.org/wiki/Bruce_Willis">Bruce's Wiki Page</a>
         </h2>
@@ -242,9 +309,14 @@ class App extends Component {
           <button className="centerClass" id="tableButton" onClick={this.addMovie}>
             Add Movie to Table
           </button>
+          <button onClick={this.deleteRowFunc}>Delete Last Movie</button>
         </div>
         <br />
-        <button onClick={this.showDate}>Show Date</button>
+        {this.state.date ? (
+          <button onClick={this.hideDate}>Hide Current Date/Time</button>
+        ) : (
+          <button onClick={this.showDate}>Get Current Date/Time</button>
+        )}
         <h1>{this.state.date}</h1>
         <div>
           <label>Background</label>
@@ -255,6 +327,12 @@ class App extends Component {
             <option value="green">Green</option>
           </select>
         </div>
+        <footer>
+          <p>Posted by: Steve Flint</p>
+          <p>
+            Contact information: <a href="mailto:steve.flint@t1cg.com">steve.flint@t1cg.com</a>.
+          </p>
+        </footer>
       </div>
     );
   }

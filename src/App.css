@@ -3,40 +3,56 @@
 }
 
 body {
-  margin: 0;
+  margin-bottom: 175px;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+    'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.App {
-  border-style: outset;
-  border-radius: 50px;
-  box-shadow: 0 0 5px 0 #771b1b80;
-  margin: 50px;
+table,
+th,
+td {
+  background-color: lightgreen;
+  border: 1px solid black;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .bruceTitle {
   padding-top: 20px;
+  text-align: center;
+  color: darkblue;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 button {
   background-color: lightgray;
   border-radius: 8px;
   margin: 10px;
+  height: 50%;
   font-size: 16px;
 }
 
 input {
   margin: 10px;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 100%;
+  min-height: 10%;
+  background-color: white;
+  color: black;
+  text-align: center;
 }
 
 .questionDisplay {
@@ -58,69 +74,26 @@ select {
   margin-bottom: 20px;
 }
 
-/* body {
-  background-color: lightblue;
-}
-
-#willisTitle {
-  text-align: center;
-  color: darkblue;
-}
-
-table,
-th,
-td {
-  background-color: lightgreen;
-  border: 1px solid black;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#willisPic,
-#willisVideo {
-  height: 500px;
-  width: 400px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.classHidden {
-  display: none !important;
-}
-
-#link {
-  text-align: center;
-}
-
-.date {
-  text-align: center;
-}
-
-.centerClass {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#trivia,
-#triviaInput,
-#answerButton,
-#triviaContent,
-#nextQuestion,
-#resetGame {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
+.messageCard {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  background-color: lightgray;
+  /* 5px rounded corners */
+  margin-right: 180px;
+  margin-left: 180px;
   margin-top: 20px;
   margin-bottom: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
 }
 
-#triviaButton,
-#titleInput,
-#yearInput,
-#videoButton {
-  margin-top: 20px;
-  margin-bottom: 20px;
-} */
+/* On mouse-over, add a deeper shadow */
+.messageCard:hover {
+  box-shadow: 0 16px 24px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Add some padding inside the card container */
+.messageContainer {
+  padding: 2px 16px;
+}
